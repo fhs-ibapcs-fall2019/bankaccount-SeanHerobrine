@@ -5,7 +5,7 @@ public class BankAccount
     private int accountNumber;
     private String password;
     private boolean loggedIn;
-    
+
     public BankAccount(double balance, String accountHolder, int accountNumber,
     String password)
     {
@@ -15,7 +15,7 @@ public class BankAccount
         this.password = password;
         this.loggedIn = false;
     }
-    
+
     //mutator - allow you to change an instance variable (attribute)
     public void logIn(String name, String password)
     {
@@ -24,7 +24,25 @@ public class BankAccount
             this.loggedIn = true;
         }
     }
-    
+
+    //mutator methods to change the balance
+    public void deposit(double amount)
+    {
+        if(loggedIn)
+        {
+            balance = balance + amount;
+
+        }else
+        {
+            throw new IllegalStateException("You are not logged in.");
+        }
+    }
+
+    public String toString()
+    {
+        return accountHolder + " Account Number " + accountNumber + "balance" + balance;
+    }
+
     //accessor - gives access to the balance instance variable (attribute)
     public double getBalance()
     {
@@ -36,5 +54,19 @@ public class BankAccount
         {
             throw new IllegalStateException("You are not logged in.");
         }
-    }  
-}
+    }   
+    
+    public void withdraw(double amount)
+    {
+        if(loggedIn == true)
+        {
+            balance = balance - amount;
+
+        } 
+        else
+        {
+            throw new IllegalStateException("You are not logged in.");
+        }
+    }
+}   
+ 

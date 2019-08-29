@@ -9,8 +9,9 @@ public class TestClass
     public static void main(String[] args)
     {
         BankAccount a1 = new BankAccount(500, "gesell", 123, "pass");
-        a1.balance = 1000000;
-        a1.password = "newpass";
-        
+        System.out.println(a1);
+        a1.logIn("gesell", "pass");
+        a1.withdraw(100);
+        System.out.println(a1);
     }
 }
